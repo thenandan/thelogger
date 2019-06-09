@@ -2,7 +2,9 @@
 
 namespace nandank\thelogger;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
+use TheNandan\TheLogger\Http\Middleware\TheRequestLogger;
 
 class theLoggerServiceProvider extends ServiceProvider
 {
@@ -13,12 +15,7 @@ class theLoggerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'thenandan');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'thenandan');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        // Publishing is only necessary when using the CLI.
+        //
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
@@ -33,10 +30,7 @@ class theLoggerServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/thelogger.php', 'theLogger');
 
-        // Register the service the package provides.
-        $this->app->singleton('theLogger', function ($app) {
-            return new theLogger;
-        });
+        $this->registerMiddleware();
     }
 
     /**
@@ -46,7 +40,7 @@ class theLoggerServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['theLogger'];
+        //
     }
     
     /**
@@ -56,27 +50,13 @@ class theLoggerServiceProvider extends ServiceProvider
      */
     protected function bootForConsole()
     {
-        // Publishing the configuration file.
-        $this->publishes([
-            __DIR__.'/../config/thelogger.php' => config_path('TheLogger.php'),
-        ], 'theLogger.config');
+        //
+    }
 
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/thenandan'),
-        ], 'theLogger.views');*/
 
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/thenandan'),
-        ], 'theLogger.views');*/
-
-        // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/thenandan'),
-        ], 'theLogger.views');*/
-
-        // Registering package commands.
-        // $this->commands([]);
+    private function registerMiddleware()
+    {
+        $kernel = $this->app->make(Kernel::class);
+        $kernel->pushMiddleware(TheRequestLogger::class);
     }
 }

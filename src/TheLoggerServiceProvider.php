@@ -13,8 +13,8 @@ class theLoggerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nandank');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'nandank');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'thenandan');
+        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'thenandan');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -63,17 +63,17 @@ class theLoggerServiceProvider extends ServiceProvider
 
         // Publishing the views.
         /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/nandank'),
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/thenandan'),
         ], 'theLogger.views');*/
 
         // Publishing assets.
         /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/nandank'),
+            __DIR__.'/../resources/assets' => public_path('vendor/thenandan'),
         ], 'theLogger.views');*/
 
         // Publishing the translation files.
         /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/nandank'),
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/thenandan'),
         ], 'theLogger.views');*/
 
         // Registering package commands.

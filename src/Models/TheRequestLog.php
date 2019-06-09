@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace TheNandan\TheLogger\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -15,6 +15,13 @@ class CreateTheRequestLogsTable extends Migration
     {
         Schema::create('the_request_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('start_time', 10);
+            $table->string('end_time', 10);
+            $table->ipAddress('ip_address');
+            $table->longText('url');
+            $table->string('method');
+            $table->longText('input');
+            $table->longText('output');
             $table->timestamps();
         });
     }

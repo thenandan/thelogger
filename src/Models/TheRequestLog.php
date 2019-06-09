@@ -13,8 +13,10 @@ class TheRequestLog extends Model
      * @var array $fillable
      */
     protected $fillable = [
-        'start_time',
-        'end_time',
+        'start_micro_time',
+        'end_micro_time',
+        'started_at',
+        'returned_at',
         'ip_address',
         'url',
         'method',

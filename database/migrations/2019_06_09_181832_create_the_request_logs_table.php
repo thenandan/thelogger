@@ -17,8 +17,8 @@ class CreateTheRequestLogsTable extends Migration
             $table->bigIncrements('id');
             $table->string('start_micro_time', 10);
             $table->string('end_micro_time', 10);
-            $table->dateTime('started_at');
-            $table->dateTime('returned_at');
+            $table->timestamp('started_at');
+            $table->timestamp('returned_at');
             $table->ipAddress('ip_address');
             $table->longText('url');
             $table->string('method');

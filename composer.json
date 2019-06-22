@@ -1,5 +1,5 @@
 {
-    "name": "nandank/thelogger",
+    "name": "thenandan/thelogger",
     "description": ":description",
     "license": "license",
     "authors": [
@@ -9,7 +9,7 @@
             "homepage": "author homepage"
         }
     ],
-    "homepage": "https://github.com/nandank/thelogger",
+    "homepage": "https://github.com/thenandan/thelogger",
     "keywords": ["Laravel", "thelogger"],
     "require": {
         "illuminate/support": "~5"
@@ -22,21 +22,21 @@
     },
     "autoload": {
         "psr-4": {
-            "nandank\\thelogger\\": "src/"
+            "thenandan\\thelogger\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "nandank\\thelogger\\Tests\\": "tests"
+            "thenandan\\thelogger\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "nandank\\thelogger\\theloggerServiceProvider"
+                "thenandan\\thelogger\\TheLoggerServiceProvider"
             ],
             "aliases": {
-                "thelogger": "nandank\\thelogger\\Facades\\thelogger"
+                "thelogger": "thenandan\\thenandan\\Facades\\TheLogger"
             }
         }
     }

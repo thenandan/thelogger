@@ -1,6 +1,6 @@
 <?php
 
-namespace nandank\thelogger;
+namespace TheNandan\TheLogger;
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
@@ -19,6 +19,11 @@ class theLoggerServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
+
+        /*
+         * Register the migrations
+         */
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**

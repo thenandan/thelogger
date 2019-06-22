@@ -2,6 +2,7 @@
 
 namespace TheNandan\TheLogger\Http\Middleware;
 
+use Jenssegers\Agent\Agent;
 use TheNandan\TheLogger\Models\TheRequestLog;
 use Carbon\Carbon;
 use Closure;
@@ -29,6 +30,7 @@ class TheRequestLogger
     public function terminate($request, $response)
     {
         if (config('thelogger.logger_enabled')) {
+            $agent = new Agent();
             $responseTime = Carbon::now();
             $requestTime  = Carbon::createFromTimestamp(LARAVEL_START);
             $newLog = new TheRequestLog();
@@ -41,6 +43,11 @@ class TheRequestLogger
             $newLog->method = $request->method();
             $newLog->input = $request->getContent();
             $newLog->output = $response->getContent();
+            $newLog->browser = $agent->browser();
+            $newLog->browser_version = $agent->version($agent->browser());
+            $newLog->platform = $agent->platform();
+            $newLog->platform_version = $agent->version($agent->platform());
+            $newLog->device = $agent->device();
             $newLog->save();
         }
     }

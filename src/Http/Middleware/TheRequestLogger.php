@@ -9,16 +9,6 @@ use Closure;
 class TheRequestLogger
 {
     /**
-     * @var $startTime
-     */
-    private $startTime;
-
-    /**
-     * @var $startDateTime
-     */
-    protected $startDateTime;
-
-    /**
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
@@ -27,9 +17,6 @@ class TheRequestLogger
      */
     public function handle($request, Closure $next)
     {
-        $this->startTime = microtime(true);
-        $this->startDateTime = Carbon::now()->toDateTimeString();
-
         return $next($request);
     }
 
@@ -41,12 +28,14 @@ class TheRequestLogger
      */
     public function terminate($request, $response)
     {
-        if (env('THE_REQUEST_LOGGER_ENABLED')) {
+        if (config('thelogger.logger_enabled')) {
+            $responseTime = Carbon::now();
+            $requestTime  = Carbon::createFromTimestamp(LARAVEL_START);
             $newLog = new TheRequestLog();
-            $newLog->start_micro_time = $this->startTime;
-            $newLog->end_micro_time = microtime(true);
-            $newLog->started_at = $this->startDateTime;
-            $newLog->returned_at = Carbon::now()->toDateTimeString();
+            $newLog->start_micro_time = $requestTime->timestamp;
+            $newLog->end_micro_time = $responseTime->timestamp;
+            $newLog->started_at = $requestTime->toDateTimeString();
+            $newLog->returned_at = $responseTime->toDateTimeString();
             $newLog->ip_address = $request->ip();
             $newLog->url = $request->fullUrl();
             $newLog->method = $request->method();

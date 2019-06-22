@@ -12,7 +12,8 @@
     "homepage": "https://github.com/thenandan/thelogger",
     "keywords": ["Laravel", "thelogger"],
     "require": {
-        "illuminate/support": "~5"
+        "illuminate/support": "~5",
+        "jenssegers/agent": "^2.6"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.0",
@@ -22,21 +23,21 @@
     },
     "autoload": {
         "psr-4": {
-            "thenandan\\thelogger\\": "src/"
+            "TheNandan\\TheLogger\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "thenandan\\thelogger\\Tests\\": "tests"
+            "TheNandan\\TheLogger\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "thenandan\\thelogger\\TheLoggerServiceProvider"
+                "TheNandan\\TheLogger\\TheLoggerServiceProvider"
             ],
             "aliases": {
-                "thelogger": "thenandan\\thenandan\\Facades\\TheLogger"
+                "thelogger": "TheNandan\\TheLogger\\Facades\\TheLogger"
             }
         }
     }

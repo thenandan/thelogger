@@ -19,6 +19,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $method
  * @property string $input
  * @property string $output
+ * @property string $browser;
+ * @property string $browser_version;
+ * @property string $platform;
+ * @property string $platform_version;
+ * @property string $device;
  *
  * @package TheNandan\TheLogger\Models
  */
@@ -49,5 +54,10 @@ class TheRequestLog extends Model
         'method',
         'input',
         'output',
+        'browser',
+        'browser_version',
+        'platform',
+        'platform_version',
+        'device',
     ];
 }

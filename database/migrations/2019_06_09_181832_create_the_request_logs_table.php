@@ -24,6 +24,11 @@ class CreateTheRequestLogsTable extends Migration
             $table->string('method');
             $table->longText('input');
             $table->longText('output');
+            $table->string('browser');
+            $table->string('browser_version');
+            $table->string('platform');
+            $table->string('platform_version');
+            $table->string('device');
             $table->timestamps();
         });
     }

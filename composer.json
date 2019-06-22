@@ -1,12 +1,12 @@
 {
-    "name": "thenandan/thelogger",
-    "description": ":description",
+    "name": "TheNandan/TheLogger",
+    "description": "A logger package for laravel.",
     "license": "license",
     "authors": [
         {
-            "name": "author name",
-            "email": "author email",
-            "homepage": "author homepage"
+            "name": "Keshari Nandan",
+            "email": "thenandan4@gmail.com",
+            "homepage": "https://github.com/thenandan"
         }
     ],
     "homepage": "https://github.com/thenandan/thelogger",

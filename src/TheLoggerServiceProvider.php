@@ -2,11 +2,12 @@
 
 namespace TheNandan\TheLogger;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 use TheNandan\TheLogger\Http\Middleware\TheRequestLogger;
 
-class theLoggerServiceProvider extends ServiceProvider
+class TheLoggerServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.
@@ -27,13 +28,11 @@ class theLoggerServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register any package services.
-     *
-     * @return void
+     * @throws BindingResolutionException
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/thelogger.php', 'theLogger');
+        $this->mergeConfigFrom(__DIR__.'/../config/thelogger.php', 'thelogger');
 
         $this->registerMiddleware();
     }
@@ -58,7 +57,9 @@ class theLoggerServiceProvider extends ServiceProvider
         //
     }
 
-
+    /**
+     * @throws BindingResolutionException
+     */
     private function registerMiddleware()
     {
         $kernel = $this->app->make(Kernel::class);

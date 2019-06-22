@@ -10,7 +10,7 @@
         }
     ],
     "homepage": "https://github.com/thenandan/thelogger",
-    "keywords": ["Laravel", "thelogger"],
+    "keywords": ["Laravel", "thelogger", "Laravel Logger"],
     "require": {
         "illuminate/support": "~5",
         "jenssegers/agent": "^2.6"

@@ -12,7 +12,7 @@
     "homepage": "https://github.com/thenandan/thelogger",
     "keywords": ["Laravel", "thelogger", "Laravel Logger"],
     "require": {
-        "illuminate/support": "~5",
+        "illuminate/support": "^5.5|^6",
         "jenssegers/agent": "^2.6"
     },
     "require-dev": {
@@ -35,10 +35,7 @@
         "laravel": {
             "providers": [
                 "TheNandan\\TheLogger\\TheLoggerServiceProvider"
-            ],
-            "aliases": {
-                "thelogger": "TheNandan\\TheLogger\\Facades\\TheLogger"
-            }
+            ]
         }
     }
 }

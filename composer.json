@@ -1,7 +1,7 @@
 {
     "name": "thenandan/thelogger",
     "description": "A logger package for laravel.",
-    "license": "license",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Keshari Nandan",

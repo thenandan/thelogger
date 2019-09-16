@@ -1,5 +1,5 @@
 {
-    "name": "TheNandan/TheLogger",
+    "name": "thenandan/thelogger",
     "description": "A logger package for laravel.",
     "license": "license",
     "authors": [
@@ -24,11 +24,6 @@
     "autoload": {
         "psr-4": {
             "TheNandan\\TheLogger\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "TheNandan\\TheLogger\\Tests\\": "tests"
         }
     },
     "extra": {

@@ -1,6 +1,7 @@
 {
     "name": "thenandan/thelogger",
     "description": "A logger package for laravel.",
+    "type": "laravel-library",
     "license": "proprietary",
     "authors": [
         {
